@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Student</title>
+</head>
+<body>
+    <h2>Add Student</h2>
+    {%if msg%}
+    <span>{{msg}}</span>
+    {%endif%}
+    <form action="{% url 'add_student' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+
+    </form>
+    
+    <a href="{% url 'student_list' %}"><button type="submit">Show List</button></a>
+    <a href="{% url 'get_students' %}"><button type="submit">Show API</button></a>
+
+    <form>
+    </form>
+</body>
+</html>
